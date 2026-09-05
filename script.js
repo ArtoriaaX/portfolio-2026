@@ -1,33 +1,37 @@
 /* ==========================================================================
    PORTFOLIO 2026 - AHMAD AL-FATIH RAMADHAN (ARTORIAA-X)
-   Interactive Features & Saber Mana Effects
+   Theme: Modern Interactive Violet/Dark Architecture
+   Interactive Features & Utilities
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initTypewriter();
-  initManaCanvas();
-  initPersonaSwitcher();
+  initAmbientCanvas();
+  initProjectFilters();
   initMobileNav();
+  initNavbarScroll();
   initActiveNavHighlight();
 });
 
-/* --- 1. Typewriter Effect --- */
+/* --- 1. Dynamic Typewriter Effect --- */
 function initTypewriter() {
   const words = [
     'Network & Systems Engineer',
     'MTCNA Certified (MikroTik)',
     'Linux Server Administrator',
-    'Fiber Optic Specialist',
-    'Web & Algorithm Developer'
+    'Fiber Optic & SD-WAN Specialist',
+    'Modern Web & Interface Developer'
   ];
 
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
   const typewriterElement = document.getElementById('typewriter');
-  const typeSpeed = 90;
-  const deleteSpeed = 40;
-  const holdDelay = 1800;
+  if (!typewriterElement) return;
+
+  const typeSpeed = 85;
+  const deleteSpeed = 35;
+  const holdDelay = 2000;
 
   function type() {
     const currentWord = words[wordIndex];
@@ -57,139 +61,149 @@ function initTypewriter() {
   type();
 }
 
-/* --- 2. Floating Mana / Golden Sparks Canvas --- */
-function initManaCanvas() {
-  const canvas = document.getElementById('mana-canvas');
+/* --- 2. Interactive Ambient Vector Waves Canvas --- */
+function initAmbientCanvas() {
+  const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
 
+  let mouseX = width / 2;
+  let mouseY = height / 2;
+  let targetMouseX = mouseX;
+  let targetMouseY = mouseY;
+
   window.addEventListener('resize', () => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
   });
 
-  const particles = [];
-  const particleCount = 45;
+  window.addEventListener('mousemove', (e) => {
+    targetMouseX = e.clientX;
+    targetMouseY = e.clientY;
+  });
 
-  const colors = [
-    'rgba(245, 158, 11, ', // Excalibur Gold
-    'rgba(251, 191, 36, ', // Bright Gold
-    'rgba(56, 189, 248, ', // Mana Cyan
-    'rgba(37, 99, 235, '   // Royal Blue
+  // Flowing Wave Curves configuration
+  const waves = [
+    { yOffset: 0.25, amplitude: 35, frequency: 0.0018, speed: 0.012, color: 'rgba(124, 58, 237, 0.12)' },
+    { yOffset: 0.50, amplitude: 50, frequency: 0.0014, speed: 0.008, color: 'rgba(99, 102, 241, 0.10)' },
+    { yOffset: 0.75, amplitude: 40, frequency: 0.0016, speed: 0.010, color: 'rgba(168, 85, 247, 0.09)' },
+    { yOffset: 0.90, amplitude: 30, frequency: 0.0020, speed: 0.014, color: 'rgba(56, 189, 248, 0.06)' }
   ];
 
-  class Particle {
-    constructor() {
-      this.reset();
-    }
+  let step = 0;
 
-    reset() {
-      this.x = Math.random() * width;
-      this.y = height + Math.random() * 50;
-      this.radius = Math.random() * 2.2 + 0.8;
-      this.speedY = Math.random() * 1.2 + 0.4;
-      this.speedX = (Math.random() - 0.5) * 0.6;
-      this.colorBase = colors[Math.floor(Math.random() * colors.length)];
-      this.alpha = Math.random() * 0.7 + 0.2;
-      this.fade = Math.random() * 0.006 + 0.002;
-    }
-
-    update() {
-      this.y -= this.speedY;
-      this.x += this.speedX;
-      this.alpha -= this.fade;
-
-      if (this.y < -10 || this.alpha <= 0) {
-        this.reset();
-      }
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = this.colorBase + this.alpha + ')';
-      ctx.shadowBlur = 10;
-      ctx.shadowColor = this.colorBase + '0.8)';
-      ctx.fill();
-      ctx.closePath();
-    }
-  }
-
-  for (let i = 0; i < particleCount; i++) {
-    const p = new Particle();
-    p.y = Math.random() * height; // distribute initial
-    particles.push(p);
-  }
-
-  function animate() {
+  function render() {
     ctx.clearRect(0, 0, width, height);
-    particles.forEach((p) => {
-      p.update();
-      p.draw();
+
+    // Smooth mouse interpolation
+    mouseX += (targetMouseX - mouseX) * 0.05;
+    mouseY += (targetMouseY - mouseY) * 0.05;
+
+    step += 0.02;
+
+    waves.forEach((wave) => {
+      ctx.beginPath();
+      const baseY = height * wave.yOffset + (mouseY - height / 2) * 0.08;
+
+      ctx.moveTo(0, baseY);
+
+      for (let x = 0; x < width; x += 15) {
+        const distToMouse = Math.abs(x - mouseX);
+        const mouseInfluence = Math.max(0, 1 - distToMouse / 400) * 20;
+
+        const y =
+          baseY +
+          Math.sin(x * wave.frequency + step * wave.speed * 40) * (wave.amplitude + mouseInfluence);
+
+        ctx.lineTo(x, y);
+      }
+
+      ctx.strokeStyle = wave.color;
+      ctx.lineWidth = 1.6;
+      ctx.stroke();
     });
-    requestAnimationFrame(animate);
+
+    requestAnimationFrame(render);
   }
 
-  animate();
+  render();
 }
 
-/* --- 3. Dual Persona Switcher (Artoria <-> Real Photo) --- */
-function initPersonaSwitcher() {
-  const profileImg = document.getElementById('profile-img');
-  const personaLabel = document.getElementById('persona-label');
-  const navBtn = document.getElementById('avatar-toggle-btn');
-  const quickSwap = document.getElementById('persona-quick-swap');
+/* --- 3. Project Filter System --- */
+function initProjectFilters() {
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const projectCards = document.querySelectorAll('.project-card');
 
-  if (!profileImg) return;
+  if (!filterPills.length || !projectCards.length) return;
 
-  const personas = {
-    artoria: {
-      src: 'assets/images/profile-artoria.png',
-      label: 'Saber Persona',
-      alt: 'Artoria Persona - Ahmad AL-Fatih'
-    },
-    real: {
-      src: 'assets/images/profile-real.png',
-      label: 'Professional Profile',
-      alt: 'Ahmad AL-Fatih Ramadhan Photo'
+  filterPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach((p) => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      const filter = pill.getAttribute('data-filter');
+
+      projectCards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 20);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(15px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 250);
+        }
+      });
+    });
+  });
+}
+
+/* --- 4. Copy to Clipboard with Toast Notification --- */
+function copyText(text, message = 'Teks disalin ke clipboard!') {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(message);
+    });
+  } else {
+    // Fallback for non-https or older browser environments
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      showToast(message);
+    } catch (err) {
+      showToast('Gagal menyalin');
     }
-  };
-
-  let currentPersona = localStorage.getItem('artoria_persona') || 'artoria';
-
-  function applyPersona(mode) {
-    currentPersona = mode;
-    localStorage.setItem('artoria_persona', mode);
-
-    profileImg.style.opacity = '0';
-    profileImg.style.transform = 'scale(0.85)';
-
-    setTimeout(() => {
-      profileImg.src = personas[mode].src;
-      profileImg.alt = personas[mode].alt;
-      if (personaLabel) personaLabel.textContent = personas[mode].label;
-
-      profileImg.style.opacity = '1';
-      profileImg.style.transform = 'scale(1)';
-    }, 200);
+    document.body.removeChild(textArea);
   }
-
-  function togglePersona() {
-    const next = currentPersona === 'artoria' ? 'real' : 'artoria';
-    applyPersona(next);
-  }
-
-  if (navBtn) navBtn.addEventListener('click', togglePersona);
-  if (quickSwap) quickSwap.addEventListener('click', togglePersona);
-
-  // Apply initial
-  applyPersona(currentPersona);
 }
 
-/* --- 4. Mobile Navigation Toggle --- */
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+
+  toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #4ade80; margin-right: 8px;"></i> ${message}`;
+  toast.classList.add('show');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2800);
+}
+
+/* --- 5. Mobile Navigation Toggle --- */
 function initMobileNav() {
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');
@@ -215,20 +229,46 @@ function initMobileNav() {
         }
       });
     });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        const icon = navToggle.querySelector('i');
+        if (icon) {
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-xmark');
+        }
+      }
+    });
   }
 }
 
-/* --- 5. Scroll Active Link Highlighting --- */
+/* --- 6. Navbar Scroll Background --- */
+function initNavbarScroll() {
+  const navbarWrapper = document.querySelector('.navbar-wrapper');
+  if (!navbarWrapper) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbarWrapper.classList.add('scrolled');
+    } else {
+      navbarWrapper.classList.remove('scrolled');
+    }
+  });
+}
+
+/* --- 7. Scroll Active Nav Highlighting --- */
 function initActiveNavHighlight() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
   window.addEventListener('scroll', () => {
-    let scrollY = window.pageYOffset;
+    const scrollY = window.pageYOffset;
 
     sections.forEach((current) => {
       const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
+      const sectionTop = current.offsetTop - 140;
       const sectionId = current.getAttribute('id');
 
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -243,7 +283,7 @@ function initActiveNavHighlight() {
   });
 }
 
-/* --- 6. Form Submission (Redirect to WhatsApp with formatted message) --- */
+/* --- 8. Contact Form Handler (Direct WhatsApp Redirect) --- */
 function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -253,9 +293,8 @@ function handleFormSubmit(event) {
   const message = document.getElementById('form-message').value.trim();
 
   const phone = '6283894768294';
-  const text = `Halo Ahmad AL-Fatih (ArtoriaaX),%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Subjek:* ${encodeURIComponent(subject)}%0A%0A*Pesan:*%0A${encodeURIComponent(message)}`;
+  const text = `Halo Ahmad AL-Fatih Ramadhan,%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Subjek:* ${encodeURIComponent(subject)}%0A%0A*Pesan:*%0A${encodeURIComponent(message)}`;
 
   const waUrl = `https://wa.me/${phone}?text=${text}`;
   window.open(waUrl, '_blank');
 }
-

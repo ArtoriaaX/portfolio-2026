@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmad AL-Fatih Ramadhan (ArtoriaaX) | Portfolio</title>
-  <meta name="description" content="Portfolio of Ahmad AL-Fatih Ramadhan - Network Engineer, System Administrator, and Web Developer." />
+  <title>Ahmad AL-Fatih Ramadhan | Network Engineer & Web Developer</title>
+  <meta name="description" content="Portofolio resmi Ahmad AL-Fatih Ramadhan (ArtoriaaX) - MTCNA Certified Network Engineer, Linux System Administrator, dan Web Developer." />
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/profile-artoria.png" />
+  <link rel="icon" type="image/png" href="assets/images/profile.png" />
 
-  <!-- Google Fonts: Plus Jakarta Sans & Cinzel (Fate/Artoria Royal feel) & JetBrains Mono -->
+  <!-- Google Fonts: Plus Jakarta Sans, Outfit, & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -21,43 +21,39 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Canvas for Saber Mana / Golden Sparks particle effect -->
-  <canvas id="mana-canvas"></canvas>
+  <!-- Interactive Ambient Vector Wave Canvas -->
+  <canvas id="bg-canvas"></canvas>
 
   <!-- Ambient Glow Blobs -->
-  <div class="ambient-glow glow-blue"></div>
-  <div class="ambient-glow glow-gold"></div>
+  <div class="ambient-glow glow-violet"></div>
+  <div class="ambient-glow glow-indigo"></div>
   <div class="ambient-glow glow-cyan"></div>
 
   <!-- Navigation Bar -->
   <header class="navbar-wrapper">
     <nav class="navbar container">
       <a href="#hero" class="nav-brand">
-        <span class="sword-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
-        <span class="brand-text">Artoria<span class="gold-accent">aX</span></span>
+        <span class="brand-monogram"><i class="fa-solid fa-code"></i></span>
+        <span class="brand-text">AL-Fatih<span class="violet-dot">.</span></span>
       </a>
 
       <div class="nav-menu" id="nav-menu">
         <ul class="nav-list">
-          <li><a href="#hero" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#hero" class="nav-link active">About</a></li>
+          <li><a href="#showcase" class="nav-link">Skills</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#certifications" class="nav-link">Certs & Skills</a></li>
+          <li><a href="#certifications" class="nav-link">Certification</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </div>
 
       <div class="nav-actions">
-        <button id="avatar-toggle-btn" class="btn-icon" title="Ganti Mode Avatar (Artoria / Real)">
-          <i class="fa-solid fa-masks-theater"></i>
-          <span class="btn-tooltip">Switch Persona</span>
-        </button>
-        <a href="#contact" class="btn btn-gold btn-sm">
-          <span>Hire Me</span>
+        <a href="#contact" class="btn btn-pill btn-violet-glow btn-sm">
+          <span>Let's Talk</span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Menu">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Buka Menu Navigasi">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
@@ -66,415 +62,470 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
+    <!-- Hero / Profile Showcase Section (Designed based on reference image) -->
     <section id="hero" class="hero-section section">
-      <div class="container hero-container">
-        <div class="hero-content">
-          <!-- Status Tag -->
-          <div class="hero-badge">
-            <span class="pulse-dot"></span>
-            <span class="badge-text"><i class="fa-solid fa-shield-halved gold-accent"></i> MTCNA Certified • Network & Systems</span>
-          </div>
-
-          <!-- Hero Headings -->
-          <h1 class="hero-title">
-            Halo, Saya <br />
-            <span class="glitch-name" data-text="Ahmad AL-Fatih">Ahmad AL-Fatih</span>
-            <span class="alias-tag">"ArtoriaaX"</span>
-          </h1>
-
-          <p class="hero-role">
-            <span class="typewriter-text" id="typewriter"></span>
-          </p>
-
-          <p class="hero-bio">
-            Siswa & praktisi <strong>Teknik Komputer & Jaringan (TKJ)</strong> dengan pengalaman konfigurasi router 
-            <strong>MikroTik</strong>, administrasi <strong>Linux Server</strong>, infrastruktur <strong>Fiber Optic</strong>, 
-            dan pengembangan <strong>Web Modern</strong>.
-          </p>
-
-          <!-- Action Buttons -->
-          <div class="hero-cta">
-            <a href="#projects" class="btn btn-gold">
-              <i class="fa-solid fa-compass"></i>
-              <span>Explore Projects</span>
-            </a>
-            <a href="#contact" class="btn btn-glass">
-              <i class="fa-solid fa-paper-plane"></i>
-              <span>Hubungi Saya</span>
-            </a>
-            <a href="https://github.com/ArtoriaaX" target="_blank" rel="noopener noreferrer" class="btn btn-outline-github">
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
-            </a>
-          </div>
-
-          <!-- Quick Contacts info strip -->
-          <div class="hero-quick-info">
-            <div class="info-item">
-              <i class="fa-solid fa-location-dot gold-accent"></i>
-              <span>Ciputat, Tangerang Selatan</span>
-            </div>
-            <div class="info-divider">•</div>
-            <div class="info-item">
-              <i class="fa-solid fa-envelope gold-accent"></i>
-              <span>ahmadalfatihramadhan@gmail.com</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Avatar Showcase -->
-        <div class="hero-avatar-col">
-          <div class="avatar-card-wrapper">
-            <div class="magic-circle-ring ring-outer"></div>
-            <div class="magic-circle-ring ring-inner"></div>
-
-            <div class="avatar-frame">
-              <img id="profile-img" src="assets/images/profile-artoria.png" alt="Ahmad AL-Fatih Ramadhan (ArtoriaaX)" />
-              <div class="avatar-glow-overlay"></div>
-            </div>
-
-            <!-- Avatar Badge Pill -->
-            <div class="persona-indicator" id="persona-indicator">
-              <i class="fa-solid fa-crown gold-accent"></i>
-              <span id="persona-label">Saber Persona</span>
-              <button id="persona-quick-swap" title="Klik untuk ganti foto">
-                <i class="fa-solid fa-arrows-rotate"></i>
-              </button>
-            </div>
-
-            <!-- Floating Stat Badges -->
-            <div class="floating-badge badge-mtcna">
-              <div class="badge-icon"><i class="fa-solid fa-certificate"></i></div>
-              <div class="badge-text">
-                <span class="badge-title">MTCNA</span>
-                <span class="badge-sub">2502NA9815</span>
-              </div>
-            </div>
-
-            <div class="floating-badge badge-network">
-              <div class="badge-icon"><i class="fa-solid fa-network-wired"></i></div>
-              <div class="badge-text">
-                <span class="badge-title">Cisco & MikroTik</span>
-                <span class="badge-sub">Routing & Switching</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle gold-accent">EXCALIBUR'S CHRONICLE</span>
-          <h2 class="section-title">About Me</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-card glass-card">
-            <div class="card-icon gold-icon">
-              <i class="fa-solid fa-user-astronaut"></i>
+        
+        <!-- Top Row: About Me & Arch Avatar Frame -->
+        <div class="hero-top-grid">
+          
+          <!-- Left Column: Pill Header & Bio Content -->
+          <div class="hero-intro-col">
+            
+            <!-- Large Pill Header (Inspired by reference photo "About me") -->
+            <div class="pill-badge-header">
+              <h2>About me</h2>
             </div>
-            <h3>Professional Summary</h3>
-            <p class="summary-quote">
-              "A Student majoring in Computer and Network Engineering (TKJ) with experience in network configuration 
-              using MikroTik, Linux server administration, and PC hardware troubleshooting. Skilled in maintaining 
-              network stability, improving system security, and implementing Apache-based virtual hosts."
-            </p>
-            <p>
-              Memiliki daya analisa yang kuat, pemecahan masalah yang efisien, dan siap berkontribusi secara nyata 
-              dalam lingkungan teknologi yang dinamis dan terus berkembang.
-            </p>
+
+            <div class="hero-text-content">
+              <p class="greeting-text">Hi!</p>
+              <h1 class="name-text">
+                My name is <span class="highlight-name">Ahmad AL-Fatih Ramadhan</span>.
+              </h1>
+              <p class="role-lead">
+                I am a <span class="role-highlight">Network & Systems Engineer</span> and <span class="role-highlight">Web Developer</span> based in Tangerang Selatan, Indonesia with practical experience in enterprise network infrastructure and server administration.
+              </p>
+
+              <!-- Dynamic Interactive Typewriter -->
+              <div class="typewriter-pill">
+                <span class="pulse-indicator"></span>
+                <span class="typewriter-label">Specialization:</span>
+                <span class="typewriter-text" id="typewriter"></span>
+              </div>
+
+              <!-- Objective Statement -->
+              <p class="objective-text">
+                <strong class="obj-label">My objective:</strong> Challenge myself in dynamic tech environments to design high-availability networks, streamline secure Linux server infrastructure, and develop fast, responsive modern web interfaces that bring tangible value.
+              </p>
+
+              <!-- Contact Quick Info (Matching Reference Layout) -->
+              <div class="quick-contact-block">
+                <h3 class="quick-contact-title">Contact</h3>
+                <div class="quick-contact-grid">
+                  
+                  <div class="contact-pill-item" onclick="copyText('ahmadalfatihramadhan@gmail.com', 'Email disalin ke clipboard!')" title="Klik untuk salin email">
+                    <div class="pill-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <span class="pill-val">ahmadalfatihramadhan@gmail.com</span>
+                    <i class="fa-regular fa-copy copy-icon"></i>
+                  </div>
+
+                  <a href="https://wa.me/6283894768294" target="_blank" rel="noopener noreferrer" class="contact-pill-item">
+                    <div class="pill-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <span class="pill-val">+62 838-9476-8294</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square copy-icon"></i>
+                  </a>
+
+                  <a href="https://github.com/ArtoriaaX" target="_blank" rel="noopener noreferrer" class="contact-pill-item">
+                    <div class="pill-icon"><i class="fa-brands fa-github"></i></div>
+                    <span class="pill-val">github.com/ArtoriaaX</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square copy-icon"></i>
+                  </a>
+
+                  <div class="contact-pill-item">
+                    <div class="pill-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <span class="pill-val">Ciputat, Tangerang Selatan</span>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Action CTAs -->
+              <div class="hero-actions">
+                <a href="#projects" class="btn btn-pill btn-violet-glow">
+                  <i class="fa-solid fa-layer-group"></i>
+                  <span>View Projects</span>
+                </a>
+                <a href="#contact" class="btn btn-pill btn-glass">
+                  <i class="fa-regular fa-paper-plane"></i>
+                  <span>Send Message</span>
+                </a>
+              </div>
+
+            </div>
           </div>
 
-          <div class="about-stats-grid">
-            <div class="stat-card glass-card">
-              <div class="stat-number gold-accent">2+</div>
-              <div class="stat-label">Companies Handled</div>
-              <div class="stat-desc">PT Nusa Network Prakasa & PT Digital Hasanah</div>
-            </div>
-            <div class="stat-card glass-card">
-              <div class="stat-number cyan-accent">MTCNA</div>
-              <div class="stat-label">Certified Network Associate</div>
-              <div class="stat-desc">Official MikroTik Certification</div>
-            </div>
-            <div class="stat-card glass-card">
-              <div class="stat-number gold-accent">100%</div>
-              <div class="stat-label">SLA SDWAN & Fiber</div>
-              <div class="stat-desc">High Precision Splicing & Routing</div>
-            </div>
-            <div class="stat-card glass-card">
-              <div class="stat-number cyan-accent">8+</div>
-              <div class="stat-label">Repositories & Projects</div>
-              <div class="stat-desc">Websites, 3D Canvas, & Matrix Algorithms</div>
+          <!-- Right Column: Arched Avatar Frame with Neon Wire Accent -->
+          <div class="hero-avatar-col">
+            <div class="arch-avatar-wrapper">
+              
+              <!-- Decorative Neon Vector Wavy Lines (Matching reference photo background) -->
+              <svg class="curved-vector-decor" viewBox="0 0 500 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 50 0 C 150 150, 450 100, 380 320 C 300 550, 100 480, 260 600" stroke="rgba(168, 85, 247, 0.45)" stroke-width="1.8" stroke-dasharray="8 6" />
+                <path d="M 450 80 C 250 200, 100 350, 280 480 C 400 580, 200 620, 120 700" stroke="rgba(99, 102, 241, 0.35)" stroke-width="1.5" />
+              </svg>
+
+              <!-- Concentric Outer Accent Ring -->
+              <div class="arch-outer-ring"></div>
+
+              <!-- Modern Arch / Pill Photo Frame -->
+              <div class="arch-avatar-frame">
+                <img src="assets/images/profile.png" alt="Foto Profil Ahmad AL-Fatih Ramadhan" id="profile-img" class="arch-avatar-img" />
+                <div class="arch-avatar-overlay"></div>
+              </div>
+
+              <!-- Floating Modern Status Badge -->
+              <div class="floating-pill-badge badge-status">
+                <span class="status-pulse-dot"></span>
+                <span>Open for Opportunities</span>
+              </div>
+
+              <!-- Floating Credential Pill -->
+              <div class="floating-pill-badge badge-credential">
+                <i class="fa-solid fa-certificate violet-icon"></i>
+                <div class="credential-info">
+                  <strong>MTCNA Certified</strong>
+                  <small>ID: 2502NA9815</small>
+                </div>
+              </div>
+
             </div>
           </div>
+
         </div>
+
+        <!-- Bottom Signature Showcase: Large Violet Gradient Card (Inspired by reference photo) -->
+        <div id="showcase" class="showcase-card-container">
+          <div class="showcase-violet-card">
+            
+            <div class="showcase-grid">
+
+              <!-- Block 1: Education -->
+              <div class="showcase-block block-education">
+                <div class="block-title-row">
+                  <h3 class="block-title">Education</h3>
+                  <span class="period-pill">2022 – 2025</span>
+                </div>
+                <p class="education-school">SMK LETRIS INDONESIA 1</p>
+                <p class="education-major">Teknik Komputer & Jaringan (TKJ)</p>
+              </div>
+
+              <!-- Block 2: Soft Skills -->
+              <div class="showcase-block block-soft-skills">
+                <h3 class="block-title">Soft skill</h3>
+                <div class="two-col-skills">
+                  <div class="col-item">
+                    <span>Teamwork</span>
+                    <span class="divider">|</span>
+                    <span>Critical Thinking</span>
+                  </div>
+                  <div class="col-item">
+                    <span>Communication</span>
+                    <span class="divider">|</span>
+                    <span>Time Management</span>
+                  </div>
+                  <div class="col-item">
+                    <span>Problem Solving</span>
+                    <span class="divider">|</span>
+                    <span>Continuous Learning</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block 3: Technical Skills Icons -->
+              <div class="showcase-block block-tech-skills">
+                <h3 class="block-title">Technical skill</h3>
+                <div class="tech-icon-grid">
+                  
+                  <div class="tech-icon-card" title="MikroTik RouterOS">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <span>MikroTik</span>
+                  </div>
+
+                  <div class="tech-icon-card" title="Cisco Enterprise">
+                    <i class="fa-solid fa-server"></i>
+                    <span>Cisco</span>
+                  </div>
+
+                  <div class="tech-icon-card" title="Linux Administration">
+                    <i class="fa-brands fa-linux"></i>
+                    <span>Linux</span>
+                  </div>
+
+                  <div class="tech-icon-card" title="Fortinet & SD-WAN">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Fortinet</span>
+                  </div>
+
+                  <div class="tech-icon-card" title="SolarWinds NMS">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>SolarWinds</span>
+                  </div>
+
+                  <div class="tech-icon-card" title="Fiber Optic Splicing">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                    <span>Fiber Optic</span>
+                  </div>
+
+                  <div class="tech-icon-card" title="Web Technologies">
+                    <i class="fa-brands fa-html5"></i>
+                    <span>HTML/CSS</span>
+                  </div>
+
+                  <div class="tech-icon-card" title="JavaScript & C++">
+                    <i class="fa-brands fa-js"></i>
+                    <span>JS / C++</span>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Block 4: Skill Set -->
+              <div class="showcase-block block-skill-set">
+                <h3 class="block-title">Skill set</h3>
+                <div class="two-col-skills">
+                  <div class="col-item">
+                    <span>Routing & Switching (OSPF, VLAN)</span>
+                    <span class="divider">|</span>
+                    <span>Linux Server Administration</span>
+                  </div>
+                  <div class="col-item">
+                    <span>Firewall Filter & NAT Security</span>
+                    <span class="divider">|</span>
+                    <span>Fiber Optic Splicing & OTDR</span>
+                  </div>
+                  <div class="col-item">
+                    <span>SD-WAN & FortiManager</span>
+                    <span class="divider">|</span>
+                    <span>Modern Web Interface Development</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Block 5: Interest -->
+              <div class="showcase-block block-interest">
+                <h3 class="block-title">Interest</h3>
+                <div class="horizontal-interest-list">
+                  <span>Network Architecture</span>
+                  <span class="divider">|</span>
+                  <span>Cloud & Virtualization</span>
+                  <span class="divider">|</span>
+                  <span>Cyber Security</span>
+                  <span class="divider">|</span>
+                  <span>Modern Web Tech</span>
+                </div>
+              </div>
+
+              <!-- Block 6: Language -->
+              <div class="showcase-block block-language">
+                <h3 class="block-title">Language</h3>
+                <div class="horizontal-interest-list">
+                  <span>Indonesian (Native)</span>
+                  <span class="divider">|</span>
+                  <span>English (Technical Proficiency)</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience" class="experience-section section">
       <div class="container">
+        
         <div class="section-header">
-          <span class="section-subtitle gold-accent">MISSION LOGS</span>
+          <div class="pill-badge-sm">Professional Path</div>
           <h2 class="section-title">Work Experience</h2>
-          <div class="section-line"></div>
+          <p class="section-desc">Rekam jejak pengalaman kerja nyata dalam infrastruktur jaringan telekomunikasi dan sistem enterprise.</p>
         </div>
 
-        <div class="timeline">
-          <!-- Timeline Item 1 -->
-          <div class="timeline-item">
-            <div class="timeline-dot">
+        <div class="modern-timeline">
+          
+          <!-- Experience Card 1 -->
+          <div class="timeline-card glass-panel">
+            <div class="timeline-badge-icon">
               <i class="fa-solid fa-server"></i>
             </div>
-            <div class="timeline-content glass-card">
-              <div class="timeline-header">
+            
+            <div class="timeline-body">
+              <div class="timeline-header-row">
                 <div>
-                  <h3 class="role-title">Network & System Engineer (Intern/Specialist)</h3>
-                  <h4 class="company-name gold-accent"><i class="fa-regular fa-building"></i> PT Nusa Network Prakasa</h4>
+                  <h3 class="role-heading">Network & System Engineer</h3>
+                  <h4 class="company-heading">
+                    <i class="fa-regular fa-building violet-icon"></i> PT Nusa Network Prakasa
+                  </h4>
                 </div>
-                <span class="timeline-period"><i class="fa-regular fa-calendar"></i> Agu 2024 – Mar 2025</span>
+                <span class="period-badge"><i class="fa-regular fa-calendar"></i> Agu 2024 – Mar 2025</span>
               </div>
-              <ul class="experience-list">
-                <li><i class="fa-solid fa-angle-right gold-accent"></i> Membuat dokumen <strong>MOP, UAT</strong>, serta dokumentasi teknis (Maintenance, Troubleshoot, and Installation).</li>
-                <li><i class="fa-solid fa-angle-right gold-accent"></i> Melakukan konfigurasi dan troubleshooting perangkat <strong>Jaringan & Firewall</strong>.</li>
-                <li><i class="fa-solid fa-angle-right gold-accent"></i> Melakukan pengujian konektivitas jaringan (ping, traceroute) dan real-time monitoring melalui <strong>NMS-SolarWinds & FortiManager</strong>.</li>
-                <li><i class="fa-solid fa-angle-right gold-accent"></i> Menganalisa performa jaringan sebelum dan sesudah penggantian perangkat untuk memastikan kepatuhan <strong>SLA SDWAN</strong>.</li>
-                <li><i class="fa-solid fa-angle-right gold-accent"></i> Memastikan operasional aplikasi kritikal berjalan lancar pasca migrasi.</li>
-                <li><i class="fa-solid fa-angle-right gold-accent"></i> Mengawasi dan mengkoordinasikan penggantian perangkat <strong>FortiSwitch</strong> yang dilakukan oleh tim Engineer On Site (EOS).</li>
+
+              <ul class="task-list">
+                <li><i class="fa-solid fa-circle-check check-bullet"></i> Menyusun dokumen teknis komprehensif: <strong>MOP, UAT</strong>, serta panduan maintenance & instalasi perangkat.</li>
+                <li><i class="fa-solid fa-circle-check check-bullet"></i> Konfigurasi dan troubleshoot perangkat <strong>Jaringan & Firewall</strong> untuk operasional skala bisnis.</li>
+                <li><i class="fa-solid fa-circle-check check-bullet"></i> Pengujian konektivitas mendalam (ping, traceroute) dan monitoring real-time via <strong>NMS SolarWinds & FortiManager</strong>.</li>
+                <li><i class="fa-solid fa-circle-check check-bullet"></i> Analisis performa jaringan sebelum dan sesudah migrasi untuk memastikan kepatuhan <strong>SLA SD-WAN</strong>.</li>
+                <li><i class="fa-solid fa-circle-check check-bullet"></i> Mengawasi dan mengkoordinasikan penggantian unit <strong>FortiSwitch</strong> bersama tim Engineer On Site (EOS).</li>
               </ul>
-              <div class="tech-tags">
-                <span>FortiManager</span>
-                <span>SolarWinds NMS</span>
-                <span>SD-WAN</span>
-                <span>FortiSwitch</span>
-                <span>Firewall</span>
-                <span>MOP & UAT</span>
+
+              <div class="pill-tag-group">
+                <span class="pill-tag">FortiManager</span>
+                <span class="pill-tag">SolarWinds NMS</span>
+                <span class="pill-tag">SD-WAN</span>
+                <span class="pill-tag">FortiSwitch</span>
+                <span class="pill-tag">Firewall</span>
+                <span class="pill-tag">MOP & UAT</span>
               </div>
             </div>
           </div>
 
-          <!-- Timeline Item 2 -->
-          <div class="timeline-item">
-            <div class="timeline-dot">
-              <i class="fa-solid fa-ethernet"></i>
+          <!-- Experience Card 2 -->
+          <div class="timeline-card glass-panel">
+            <div class="timeline-badge-icon">
+              <i class="fa-solid fa-network-wired"></i>
             </div>
-            <div class="timeline-content glass-card">
-              <div class="timeline-header">
+            
+            <div class="timeline-body">
+              <div class="timeline-header-row">
                 <div>
-                  <h3 class="role-title">Fiber Optic Technician & Internet Installation Specialist</h3>
-                  <h4 class="company-name gold-accent"><i class="fa-regular fa-building"></i> PT Digital Hasanah Indonesia</h4>
+                  <h3 class="role-heading">Fiber Optic Technician & Internet Installation</h3>
+                  <h4 class="company-heading">
+                    <i class="fa-regular fa-building violet-icon"></i> PT Digital Hasanah Indonesia
+                  </h4>
                 </div>
-                <span class="timeline-period"><i class="fa-regular fa-calendar"></i> Jan 2024 – Feb 2024</span>
+                <span class="period-badge"><i class="fa-regular fa-calendar"></i> Jan 2024 – Feb 2024</span>
               </div>
-              <ul class="experience-list">
-                <li><i class="fa-solid fa-angle-right gold-accent"></i> <strong>Fiber Optic Splicing:</strong> Melakukan penyambungan kabel fiber optik secara presisi untuk memastikan koneksi optimal dalam transmisi data efisien.</li>
-                <li><i class="fa-solid fa-angle-right gold-accent"></i> <strong>Internet Installation:</strong> Memasang dan mengkonfigurasi koneksi internet rumahan untuk klien pelanggan.</li>
-                <li><i class="fa-solid fa-angle-right gold-accent"></i> <strong>Signal Quality:</strong> Memastikan kualitas redaman kabel fiber optik sesuai standar transmisi terbaik.</li>
-                <li><i class="fa-solid fa-angle-right gold-accent"></i> <strong>Client Support & Troubleshooting:</strong> Memberikan dukungan teknis kepada pelanggan serta diagnosa & perbaikan kendala koneksi kabel optik.</li>
+
+              <ul class="task-list">
+                <li><i class="fa-solid fa-circle-check check-bullet"></i> <strong>Fiber Optic Splicing:</strong> Penyambungan kabel optik presisi tinggi guna memastikan redaman optimal dan transfer data andal.</li>
+                <li><i class="fa-solid fa-circle-check check-bullet"></i> <strong>Home Internet Setup:</strong> Instalasi dan aktivasi modem/ONT koneksi internet rumah untuk puluhan klien.</li>
+                <li><i class="fa-solid fa-circle-check check-bullet"></i> <strong>Signal Quality Measurement:</strong> Verifikasi redaman optik menggunakan OPM (Optical Power Meter) sesuai standar ISP.</li>
+                <li><i class="fa-solid fa-circle-check check-bullet"></i> <strong>Technical Support:</strong> Diagnosa kendala fisik maupun logikal jaringan fiber optik pelanggan di lapangan.</li>
               </ul>
-              <div class="tech-tags">
-                <span>Fiber Optic Splicing</span>
-                <span>OTDR / OPM</span>
-                <span>Home Internet Setup</span>
-                <span>Client Troubleshooting</span>
+
+              <div class="pill-tag-group">
+                <span class="pill-tag">Fiber Splicing</span>
+                <span class="pill-tag">OTDR / OPM</span>
+                <span class="pill-tag">ONT / Router Setup</span>
+                <span class="pill-tag">Customer Support</span>
               </div>
             </div>
           </div>
+
         </div>
+
       </div>
     </section>
 
-    <!-- Certifications & Skills Section -->
-    <section id="certifications" class="skills-section section">
+    <!-- Certification & Qualifications Section -->
+    <section id="certifications" class="cert-section section">
       <div class="container">
+        
         <div class="section-header">
-          <span class="section-subtitle gold-accent">ARSENAL & CREDENTIALS</span>
-          <h2 class="section-title">Certifications & Skills</h2>
-          <div class="section-line"></div>
+          <div class="pill-badge-sm">Credentials</div>
+          <h2 class="section-title">Certification & Competencies</h2>
+          <p class="section-desc">Kredensial resmi yang membuktikan keahlian teknis dan kepatuhan standar industri internasional.</p>
         </div>
 
-        <!-- Certification Highlight Banner -->
-        <div class="cert-banner glass-card">
-          <div class="cert-badge-ribbon">
-            <i class="fa-solid fa-award"></i>
+        <div class="cert-showcase-card glass-panel">
+          <div class="cert-ribbon-col">
+            <div class="cert-medal-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
           </div>
-          <div class="cert-info">
-            <span class="cert-tag">Official MikroTik Certification</span>
-            <h3 class="cert-title">MTCNA (MikroTik Certified Network Associate)</h3>
-            <p class="cert-id"><i class="fa-solid fa-fingerprint gold-accent"></i> Certificate ID: <strong>2502NA9815</strong></p>
-            <p class="cert-desc">
-              Tersertifikasi resmi dalam pengoperasian RouterOS MikroTik, Static & Dynamic Routing, Wireless Network, 
-              Bandwidth Management, Firewall Filter, NAT, Mangle, dan Network Troubleshooting.
+          
+          <div class="cert-details-col">
+            <div class="cert-badge-row">
+              <span class="cert-verified-pill"><i class="fa-solid fa-circle-check"></i> Officially Verified</span>
+              <span class="cert-scope-pill">MikroTik RouterOS v7</span>
+            </div>
+            
+            <h3 class="cert-main-title">MTCNA (MikroTik Certified Network Associate)</h3>
+            <p class="cert-code">
+              Certificate ID: <strong>2502NA9815</strong>
             </p>
-          </div>
-          <div class="cert-verify-badge">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Verified</span>
-          </div>
-        </div>
+            
+            <p class="cert-description">
+              Sertifikasi internasional resmi dari MikroTik yang memvalidasi kompetensi dalam konfigurasi RouterOS, Static & Dynamic Routing, Wireless Network, Manajemen Bandwidth (Queues), Firewall Filter, NAT, Mangle, VPN Tunnels, serta pemecahan masalah jaringan tingkat lanjut.
+            </p>
 
-        <!-- Education Card -->
-        <div class="edu-card glass-card">
-          <div class="edu-header">
-            <div>
-              <span class="edu-badge"><i class="fa-solid fa-graduation-cap"></i> Formal Education</span>
-              <h3 class="edu-school">SMK LETRIS INDONESIA 1</h3>
-              <p class="edu-major gold-accent">System Administrator and Network Engineering (TKJ)</p>
-            </div>
-            <span class="timeline-period"><i class="fa-regular fa-calendar"></i> Jul 2022 – Mei 2025</span>
-          </div>
-          <div class="edu-curriculum">
-            <div class="curriculum-col">
-              <h4><i class="fa-solid fa-network-wired gold-accent"></i> MikroTik & Networking</h4>
-              <p>Routing Static & Dynamic, Wireless, Firewall & NAT, Bandwidth Limiter (Queue).</p>
-            </div>
-            <div class="curriculum-col">
-              <h4><i class="fa-brands fa-linux gold-accent"></i> Linux & Servers</h4>
-              <p>Apache, Nginx, Mail Server, Samba, DNS Server, OpenVPN, FTP Server, DHCP Server.</p>
-            </div>
-            <div class="curriculum-col">
-              <h4><i class="fa-solid fa-route gold-accent"></i> Cisco Enterprise</h4>
-              <p>RIP, EIGRP, OSPF, DHCP, VLAN, Spanning-Tree (STP), Etherchannel, NAT, HSRP.</p>
+            <div class="cert-topics-grid">
+              <div class="topic-item"><i class="fa-solid fa-check violet-icon"></i> Routing (Static & OSPF)</div>
+              <div class="topic-item"><i class="fa-solid fa-check violet-icon"></i> Firewall & NAT Security</div>
+              <div class="topic-item"><i class="fa-solid fa-check violet-icon"></i> Bandwidth Management (Queues)</div>
+              <div class="topic-item"><i class="fa-solid fa-check violet-icon"></i> Wireless 802.11 Networking</div>
+              <div class="topic-item"><i class="fa-solid fa-check violet-icon"></i> Bridges, VLANs & Switching</div>
+              <div class="topic-item"><i class="fa-solid fa-check violet-icon"></i> VPN, PPPoE & Tunneling</div>
             </div>
           </div>
         </div>
 
-        <!-- Skills Grid -->
-        <div class="skills-categories-grid">
-          <!-- Category 1: Networking -->
-          <div class="skill-category-card glass-card">
-            <div class="cat-header">
-              <div class="cat-icon"><i class="fa-solid fa-diagram-project"></i></div>
-              <h3>Computer Networking</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill">MikroTik RouterOS</span>
-              <span class="skill-pill">Cisco IOS</span>
-              <span class="skill-pill">OSPF & EIGRP</span>
-              <span class="skill-pill">VLAN & Trunking</span>
-              <span class="skill-pill">Spanning Tree (STP)</span>
-              <span class="skill-pill">Etherchannel</span>
-              <span class="skill-pill">Firewall & NAT</span>
-              <span class="skill-pill">SD-WAN</span>
-              <span class="skill-pill">Fiber Optic Splicing</span>
-            </div>
-          </div>
-
-          <!-- Category 2: Linux & Servers -->
-          <div class="skill-category-card glass-card">
-            <div class="cat-header">
-              <div class="cat-icon"><i class="fa-brands fa-linux"></i></div>
-              <h3>Servers & Systems</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill">Linux Administration</span>
-              <span class="skill-pill">Web Server (Apache/Nginx)</span>
-              <span class="skill-pill">DNS Server (Bind9)</span>
-              <span class="skill-pill">Mail Server (Postfix/Dovecot)</span>
-              <span class="skill-pill">OpenVPN</span>
-              <span class="skill-pill">Samba File Server</span>
-              <span class="skill-pill">DHCP & FTP</span>
-              <span class="skill-pill">Hardware Diagnostics</span>
-            </div>
-          </div>
-
-          <!-- Category 3: Monitoring & Tools -->
-          <div class="skill-category-card glass-card">
-            <div class="cat-header">
-              <div class="cat-icon"><i class="fa-solid fa-chart-line"></i></div>
-              <h3>Monitoring & Diagnostics</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill">NMS SolarWinds</span>
-              <span class="skill-pill">FortiManager</span>
-              <span class="skill-pill">Wireshark</span>
-              <span class="skill-pill">Ping & Traceroute</span>
-              <span class="skill-pill">SLA Compliance</span>
-              <span class="skill-pill">MOP & UAT Documentation</span>
-            </div>
-          </div>
-
-          <!-- Category 4: Web & Programming -->
-          <div class="skill-category-card glass-card">
-            <div class="cat-header">
-              <div class="cat-icon"><i class="fa-solid fa-code"></i></div>
-              <h3>Web & Coding</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill">HTML5 & Modern CSS</span>
-              <span class="skill-pill">JavaScript (ES6+)</span>
-              <span class="skill-pill">C++ (Linear Algebra/Matrix)</span>
-              <span class="skill-pill">Git & GitHub</span>
-              <span class="skill-pill">Responsive Design</span>
-              <span class="skill-pill">Visual Studio Code</span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Featured Projects Section -->
     <section id="projects" class="projects-section section">
       <div class="container">
+        
         <div class="section-header">
-          <span class="section-subtitle gold-accent">NOBLE PHANTASMS</span>
+          <div class="pill-badge-sm">Portfolio Showcase</div>
           <h2 class="section-title">Featured Projects</h2>
-          <div class="section-line"></div>
+          <p class="section-desc">Eksplorasi proyek aplikasi web interaktif, sistem jaringan, dan komputasi algoritma.</p>
         </div>
 
-        <div class="projects-grid">
+        <!-- Project Category Filter Pills -->
+        <div class="project-filter-wrapper">
+          <button class="filter-pill active" data-filter="all">All Projects</button>
+          <button class="filter-pill" data-filter="web">Web Apps</button>
+          <button class="filter-pill" data-filter="3d">Interactive & 3D</button>
+          <button class="filter-pill" data-filter="algo">Systems & C++</button>
+        </div>
+
+        <div class="projects-modern-grid" id="projects-grid">
+          
           <!-- Project 1: ArtPortfo / Portfolio 2026 -->
-          <div class="project-card glass-card">
-            <div class="project-img-holder">
-              <div class="project-overlay-rune"><i class="fa-solid fa-crown"></i></div>
-              <div class="project-mockup-tag">Aesthetic Portfolio</div>
+          <div class="project-card glass-panel" data-category="web">
+            <div class="project-thumb-box">
+              <div class="thumb-badge">Modern Portfolio</div>
+              <div class="thumb-icon-preview"><i class="fa-solid fa-laptop-code"></i></div>
             </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span>HTML5</span>
-                <span>CSS3</span>
-                <span>JavaScript</span>
+            
+            <div class="project-card-body">
+              <div class="tag-row">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">Modern CSS</span>
+                <span class="tech-pill">JavaScript</span>
               </div>
+              
               <h3 class="project-title">ArtPortfo (Portfolio 2026)</h3>
-              <p class="project-desc">
-                Portofolio personal berkonsep anime aesthetic (Artoria Pendragon / Fate) dengan dukungan animasi partikel mana, 
-                dual persona avatar switcher, timeline karier interaktif, dan integrasi penuh CV.
+              <p class="project-excerpt">
+                Website portofolio interaktif bergaya dark violet modern dengan animasi canvas vektor, dynamic typewriter, filter proyek instan, dan integrasi formulir kontak WhatsApp langsung.
               </p>
-              <div class="project-links">
-                <a href="https://github.com/ArtoriaaX/portfolio-2026" target="_blank" rel="noopener noreferrer" class="project-btn">
+
+              <div class="project-links-row">
+                <a href="https://github.com/ArtoriaaX/portfolio-2026" target="_blank" rel="noopener noreferrer" class="project-link-btn">
                   <i class="fa-brands fa-github"></i> Repository
                 </a>
-                <a href="https://artoriaax.github.io/portfolio-2026/" target="_blank" rel="noopener noreferrer" class="project-btn btn-view">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
+                <a href="https://artoriaax.github.io/portfolio-2026/" target="_blank" rel="noopener noreferrer" class="project-link-btn btn-primary-link">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Project 2: projek-ambacaffe -->
-          <div class="project-card glass-card">
-            <div class="project-img-holder holder-caffe">
-              <div class="project-overlay-rune"><i class="fa-solid fa-mug-hot"></i></div>
-              <div class="project-mockup-tag">Web Application</div>
+          <div class="project-card glass-panel" data-category="web">
+            <div class="project-thumb-box thumb-caffe">
+              <div class="thumb-badge">Cafe Web Platform</div>
+              <div class="thumb-icon-preview"><i class="fa-solid fa-mug-hot"></i></div>
             </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Responsive</span>
+            
+            <div class="project-card-body">
+              <div class="tag-row">
+                <span class="tech-pill">HTML</span>
+                <span class="tech-pill">CSS Flex/Grid</span>
+                <span class="tech-pill">Responsive</span>
               </div>
+              
               <h3 class="project-title">projek-ambacaffe</h3>
-              <p class="project-desc">
-                Website showcase kafe modern dengan katalog menu interaktif, tata letak responsif untuk ponsel dan desktop, 
-                serta skema warna yang elegan.
+              <p class="project-excerpt">
+                Aplikasi landing page kafe modern dengan katalog menu interaktif, desain tata letak adaptif untuk smartphone maupun komputer, serta pemilihan tipografi yang elegan.
               </p>
-              <div class="project-links">
-                <a href="https://github.com/ArtoriaaX/projek-ambacaffe" target="_blank" rel="noopener noreferrer" class="project-btn">
+
+              <div class="project-links-row">
+                <a href="https://github.com/ArtoriaaX/projek-ambacaffe" target="_blank" rel="noopener noreferrer" class="project-link-btn">
                   <i class="fa-brands fa-github"></i> Repository
                 </a>
               </div>
@@ -482,24 +533,26 @@
           </div>
 
           <!-- Project 3: 3dfnafportfolio -->
-          <div class="project-card glass-card">
-            <div class="project-img-holder holder-fnaf">
-              <div class="project-overlay-rune"><i class="fa-solid fa-cube"></i></div>
-              <div class="project-mockup-tag">Interactive 3D</div>
+          <div class="project-card glass-panel" data-category="3d">
+            <div class="project-thumb-box thumb-fnaf">
+              <div class="thumb-badge">Interactive 3D Canvas</div>
+              <div class="thumb-icon-preview"><i class="fa-solid fa-cube"></i></div>
             </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span>3D Canvas</span>
-                <span>CSS Animations</span>
-                <span>Thematic</span>
+            
+            <div class="project-card-body">
+              <div class="tag-row">
+                <span class="tech-pill">CSS 3D Transforms</span>
+                <span class="tech-pill">Canvas API</span>
+                <span class="tech-pill">Cinematic FX</span>
               </div>
+              
               <h3 class="project-title">3dfnafportfolio</h3>
-              <p class="project-desc">
-                Eksperimen portofolio 3D dengan visual bertema misteri/cinematic, mengeksplorasi CSS 3D transforms, 
-                pencahayaan dinamis, dan efek visual yang imersif.
+              <p class="project-excerpt">
+                Eksperimen visual 3D interaktif yang mengeksplorasi transformasi ruang 3 dimensi pada web browser, manipulasi perspektif sudut pandang, dan efek pencahayaan dinamis.
               </p>
-              <div class="project-links">
-                <a href="https://github.com/ArtoriaaX/3dfnafportfolio" target="_blank" rel="noopener noreferrer" class="project-btn">
+
+              <div class="project-links-row">
+                <a href="https://github.com/ArtoriaaX/3dfnafportfolio" target="_blank" rel="noopener noreferrer" class="project-link-btn">
                   <i class="fa-brands fa-github"></i> Repository
                 </a>
               </div>
@@ -507,130 +560,181 @@
           </div>
 
           <!-- Project 4: C++ Linear Algebra / Matrix Operations -->
-          <div class="project-card glass-card">
-            <div class="project-img-holder holder-matrix">
-              <div class="project-overlay-rune"><i class="fa-solid fa-calculator"></i></div>
-              <div class="project-mockup-tag">Algorithm & Systems</div>
+          <div class="project-card glass-panel" data-category="algo">
+            <div class="project-thumb-box thumb-algo">
+              <div class="thumb-badge">Data Structure & Algorithm</div>
+              <div class="thumb-icon-preview"><i class="fa-solid fa-calculator"></i></div>
             </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span>C++</span>
-                <span>Linear Algebra</span>
-                <span>Algorithms</span>
+            
+            <div class="project-card-body">
+              <div class="tag-row">
+                <span class="tech-pill">C++</span>
+                <span class="tech-pill">Linear Algebra</span>
+                <span class="tech-pill">Memory Optimized</span>
               </div>
-              <h3 class="project-title">Penjumlahan & Operasi Matrix C++</h3>
-              <p class="project-desc">
-                Program komputasi aljabar linear untuk operasi matriks multi-dimensi (penjumlahan, pengurangan, perkalian) 
-                dengan validasi ordo dan efisiensi memori berbasis C++.
+              
+              <h3 class="project-title">Matrix Computing & Linear Algebra</h3>
+              <p class="project-excerpt">
+                Program komputasi matematika aljabar linear berbasis C++ untuk operasi matriks multidimensi (penjumlahan, pengurangan, perkalian ordo) dengan penanganan efisiensi memori.
               </p>
-              <div class="project-links">
-                <a href="https://github.com/ArtoriaaX" target="_blank" rel="noopener noreferrer" class="project-btn">
+
+              <div class="project-links-row">
+                <a href="https://github.com/ArtoriaaX" target="_blank" rel="noopener noreferrer" class="project-link-btn">
                   <i class="fa-brands fa-github"></i> Repository
                 </a>
               </div>
             </div>
           </div>
+
         </div>
+
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact & Collaboration Section -->
     <section id="contact" class="contact-section section">
       <div class="container">
+        
         <div class="section-header">
-          <span class="section-subtitle gold-accent">SUMMON SERVANT</span>
-          <h2 class="section-title">Get In Touch</h2>
-          <div class="section-line"></div>
+          <div class="pill-badge-sm">Get In Touch</div>
+          <h2 class="section-title">Let's Connect & Collaborate</h2>
+          <p class="section-desc">Terbuka untuk kesempatan magang, pekerjaan Network/System Engineer, maupun proyek pengembangan web.</p>
         </div>
 
-        <div class="contact-wrapper glass-card">
-          <div class="contact-info-side">
-            <h3 class="contact-lead-title">Mari Terhubung & Berkolaborasi!</h3>
-            <p class="contact-lead-desc">
-              Terbuka untuk kesempatan magang, pekerjaan profesional di bidang <strong>Network Engineering</strong>, 
-              <strong>System Administration</strong>, maupun proyek <strong>Web Development</strong>.
+        <div class="contact-card-wrapper glass-panel">
+          
+          <!-- Left: Contact Details -->
+          <div class="contact-info-col">
+            <h3 class="contact-title">Mari Berdiskusi!</h3>
+            <p class="contact-subtitle">
+              Punya penawaran proyek, diskusi jaringan komputer, atau kesempatan kerja sama? Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.
             </p>
 
-            <div class="contact-details-list">
-              <div class="contact-detail-item">
-                <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
-                <div class="detail-info">
-                  <span class="detail-label">Email</span>
-                  <a href="mailto:ahmadalfatihramadhan@gmail.com" class="detail-val">ahmadalfatihramadhan@gmail.com</a>
+            <div class="contact-list">
+              
+              <div class="contact-card-item" onclick="copyText('ahmadalfatihramadhan@gmail.com', 'Email disalin ke clipboard!')">
+                <div class="contact-icon-circle"><i class="fa-solid fa-envelope"></i></div>
+                <div class="contact-info-text">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">ahmadalfatihramadhan@gmail.com</span>
+                </div>
+                <button class="btn-copy-small" title="Salin Email"><i class="fa-regular fa-copy"></i></button>
+              </div>
+
+              <a href="https://wa.me/6283894768294" target="_blank" rel="noopener noreferrer" class="contact-card-item">
+                <div class="contact-icon-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="contact-info-text">
+                  <span class="contact-label">WhatsApp</span>
+                  <span class="contact-value">+62 838-9476-8294</span>
+                </div>
+                <span class="contact-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+              </a>
+
+              <a href="https://github.com/ArtoriaaX" target="_blank" rel="noopener noreferrer" class="contact-card-item">
+                <div class="contact-icon-circle"><i class="fa-brands fa-github"></i></div>
+                <div class="contact-info-text">
+                  <span class="contact-label">GitHub</span>
+                  <span class="contact-value">github.com/ArtoriaaX</span>
+                </div>
+                <span class="contact-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+              </a>
+
+              <div class="contact-card-item">
+                <div class="contact-icon-circle"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="contact-info-text">
+                  <span class="contact-label">Lokasi</span>
+                  <span class="contact-value">Ciputat, Tangerang Selatan, Indonesia</span>
                 </div>
               </div>
 
-              <div class="contact-detail-item">
-                <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
-                <div class="detail-info">
-                  <span class="detail-label">WhatsApp / Telepon</span>
-                  <a href="https://wa.me/6283894768294" target="_blank" rel="noopener noreferrer" class="detail-val">+62 838-9476-8294</a>
-                </div>
-              </div>
-
-              <div class="contact-detail-item">
-                <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <div class="detail-info">
-                  <span class="detail-label">Lokasi</span>
-                  <span class="detail-val">Jl. Gelatik III, Ciputat, Tangerang Selatan</span>
-                </div>
-              </div>
-
-              <div class="contact-detail-item">
-                <div class="detail-icon"><i class="fa-brands fa-github"></i></div>
-                <div class="detail-info">
-                  <span class="detail-label">GitHub</span>
-                  <a href="https://github.com/ArtoriaaX" target="_blank" rel="noopener noreferrer" class="detail-val">github.com/ArtoriaaX</a>
-                </div>
-              </div>
             </div>
           </div>
 
-          <div class="contact-form-side">
-            <form id="contact-form" class="contact-form" onsubmit="handleFormSubmit(event)">
+          <!-- Right: Interactive Direct Message Form -->
+          <div class="contact-form-col">
+            <form id="contact-form" class="modern-form" onsubmit="handleFormSubmit(event)">
               <div class="form-group">
-                <label for="form-name">Nama Kamu</label>
-                <input type="text" id="form-name" required placeholder="Contoh: Budi Santoso" />
+                <label for="form-name">Nama Lengkap</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-user input-icon"></i>
+                  <input type="text" id="form-name" required placeholder="Contoh: Budi Santoso" />
+                </div>
               </div>
+
               <div class="form-group">
-                <label for="form-email">Email Kamu</label>
-                <input type="email" id="form-email" required placeholder="budi@example.com" />
+                <label for="form-email">Alamat Email</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-envelope input-icon"></i>
+                  <input type="email" id="form-email" required placeholder="budi@example.com" />
+                </div>
               </div>
+
               <div class="form-group">
-                <label for="form-subject">Subjek</label>
-                <input type="text" id="form-subject" required placeholder="Projek Jaringan / Web / Diskusi" />
+                <label for="form-subject">Subjek Diskusi</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-tag input-icon"></i>
+                  <input type="text" id="form-subject" required placeholder="Projek Jaringan / Web / Kolaborasi" />
+                </div>
               </div>
+
               <div class="form-group">
-                <label for="form-message">Pesan</label>
-                <textarea id="form-message" rows="4" required placeholder="Tuliskan pesan atau penawaran kerja sama di sini..."></textarea>
+                <label for="form-message">Pesan Anda</label>
+                <div class="input-wrapper textarea-wrapper">
+                  <i class="fa-regular fa-comment-dots input-icon"></i>
+                  <textarea id="form-message" rows="4" required placeholder="Tuliskan pesan atau penawaran kerja sama di sini..."></textarea>
+                </div>
               </div>
-              <button type="submit" class="btn btn-gold btn-block">
-                <i class="fa-solid fa-paper-plane"></i>
-                <span>Kirim Pesan via WhatsApp / Email</span>
+
+              <button type="submit" class="btn btn-pill btn-violet-glow btn-block">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Kirim Pesan via WhatsApp</span>
               </button>
             </form>
           </div>
+
         </div>
+
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Modern Site Footer -->
   <footer class="site-footer">
     <div class="container footer-content">
-      <div class="footer-brand">
-        <span class="brand-text">Artoria<span class="gold-accent">aX</span></span>
-        <p class="footer-quote">"My sword is forged in code, circuits, and relentless passion."</p>
+      <div class="footer-left">
+        <a href="#hero" class="footer-brand">
+          <span class="brand-monogram"><i class="fa-solid fa-code"></i></span>
+          <span class="brand-text">AL-Fatih<span class="violet-dot">.</span></span>
+        </a>
+        <p class="footer-tagline">Building robust network infrastructures & engaging web experiences.</p>
       </div>
-      <div class="footer-copy">
-        <p>&copy; 2026 <strong>Ahmad AL-Fatih Ramadhan</strong>. All rights reserved.</p>
-        <p class="built-with">Crafted with <i class="fa-solid fa-heart gold-accent"></i> & Anime Aesthetic for <a href="https://github.com/ArtoriaaX" target="_blank">ArtoriaaX</a></p>
+
+      <div class="footer-center">
+        <ul class="footer-nav">
+          <li><a href="#hero">About</a></li>
+          <li><a href="#showcase">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#certifications">Certification</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-right">
+        <p class="footer-copy">&copy; 2026 <strong>Ahmad AL-Fatih Ramadhan</strong>. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/ArtoriaaX" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://wa.me/6283894768294" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:ahmadalfatihramadhan@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
 
   <!-- Custom Script -->
   <script src="script.js"></script>
 </body>
 </html>
-
