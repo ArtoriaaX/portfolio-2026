@@ -258,3 +258,4 @@ function handleFormSubmit(event) {
   const waUrl = `https://wa.me/${phone}?text=${text}`;
   window.open(waUrl, '_blank');
 }
+
