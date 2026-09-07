@@ -6,6 +6,7 @@ Modern, Interactive & Mobile Responsive Personal Portfolio website featuring a s
 - **Sleek Dark Violet Architecture**: Inspired by modern card and capsule UI design with smooth violet/indigo gradients and dark glassmorphism.
 - **Single Portrait Arch Frame**: Modern vertical capsule arch avatar frame with ambient concentric rings and neon vector wavy lines.
 - **Comprehensive Skills & Education Showcase**: Structured breakdown of Formal Education, Soft Skills, Technical Skills icon grid, Skill Sets, Interests, and Languages.
+- **Interactive Linux/Network CLI Playground**: Simulated terminal shell supporting commands (`help`, `whoami`, `skills`, `cert`, `neofetch`, `ping`, `traceroute`, `exp`, `projects`, `contact`), command history (arrow keys), and mobile quick-tap pills.
 - **Interactive Features**: Dynamic typewriter, interactive ambient vector wave canvas, real-time project category filtering, copy-to-clipboard toast notifications, and direct WhatsApp connect.
 - **Enterprise Network & Systems Focus**: Full showcase of MTCNA Certification, Cisco Enterprise Routing, Linux Server Administration, and Fiber Optic infrastructure experience.
 - **100% Mobile Responsive**: Fully optimized across smartphones, tablets, and desktop displays.
