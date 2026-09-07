@@ -994,17 +994,17 @@ p, span, h1, h2, h3, h4, h5, h6, a, li, input, textarea {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 22px;
 }
 
 .task-list li {
-  font-size: 0.96rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
 }
 
 .check-bullet {
@@ -1014,8 +1014,17 @@ p, span, h1, h2, h3, h4, h5, h6, a, li, input, textarea {
   flex-shrink: 0;
 }
 
+.task-text {
+  flex: 1;
+  min-width: 0;
+  display: inline;
+  text-align: left;
+}
+
+.task-text strong,
 .task-list strong {
   color: #ffffff;
+  font-weight: 600;
 }
 
 .pill-tag-group {
@@ -2004,5 +2013,21 @@ p, span, h1, h2, h3, h4, h5, h6, a, li, input, textarea {
 
   .brand-text {
     font-size: 1.2rem;
+  }
+
+  /* Timeline task list on small screens */
+  .task-list {
+    gap: 12px;
+  }
+
+  .task-list li {
+    font-size: 0.88rem;
+    gap: 10px;
+    line-height: 1.6;
+  }
+
+  .check-bullet {
+    font-size: 0.84rem;
+    margin-top: 3px;
   }
 }
